@@ -128,6 +128,7 @@ export function Footer() {
       {/* Scroll to Top Button */}
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        aria-label="Scroll to top"
         className="absolute bottom-8 right-8 w-12 h-12 bg-white/5 hover:bg-safety/20 border border-white/10 hover:border-safety/50 text-white/60 hover:text-safety flex items-center justify-center transition-all duration-300 group z-20"
       >
         <svg className="w-5 h-5 group-hover:-translate-y-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">

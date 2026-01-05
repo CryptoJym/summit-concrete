@@ -163,6 +163,8 @@ export function Header({ activeSection = '', onOpenPlaybook }: HeaderProps) {
                   e.stopPropagation();
                   setIsMobileMenuOpen(!isMobileMenuOpen);
                 }}
+                aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+                aria-expanded={isMobileMenuOpen}
                 className={`lg:hidden relative w-12 h-12 flex items-center justify-center transition-colors duration-300 mobile-menu-container ${isScrolled ? 'bg-white/10' : 'bg-coal/5'
                   }`}
               >
@@ -207,6 +209,7 @@ export function Header({ activeSection = '', onOpenPlaybook }: HeaderProps) {
           {/* Close Button */}
           <button
             onClick={() => setIsMobileMenuOpen(false)}
+            aria-label="Close menu"
             className="absolute top-6 right-6 w-10 h-10 flex items-center justify-center bg-white/10 text-white hover:bg-white/20 transition-colors"
           >
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
