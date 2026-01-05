@@ -90,13 +90,13 @@
 
   /* Custom Spacing - available as p-section, gap-grid, etc. */
   --spacing-section: var(--section-padding);
-  --spacing-section-sm: 4rem;
-  --spacing-section-lg: 8rem;
-  --spacing-container: 1.5rem;
-  --spacing-container-lg: 3rem;
-  --spacing-grid: 2rem;
-  --spacing-grid-lg: 3rem;
-  --spacing-content: 1.5rem;
+  --spacing-section-sm: 6rem;
+  --spacing-section-lg: 10rem;
+  --spacing-container: 2rem;
+  --spacing-container-lg: 4rem;
+  --spacing-grid: 3rem;
+  --spacing-grid-lg: 5rem;
+  --spacing-content: 2rem;
 }
 
 * {

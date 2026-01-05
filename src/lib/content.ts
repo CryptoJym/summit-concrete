@@ -21,13 +21,11 @@ export const brand = {
   },
 };
 
+
 export const navigation = [
   { id: 'hero', label: 'Home' },
-  { id: 'system', label: 'The System' },
   { id: 'process', label: 'Process' },
   { id: 'proof', label: 'Our Work' },
-  { id: 'pricing', label: 'Options' },
-  { id: 'contact', label: 'Get Estimate' },
 ];
 
 export const heroContent = {

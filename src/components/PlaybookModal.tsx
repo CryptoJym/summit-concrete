@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { diyPlaybook } from '@/lib/content';
 import { Button } from '@/components/ui/Button';
-import { CloseIcon, CheckIcon, ChevronRightIcon, DownloadIcon, CopyIcon, BookOpenIcon } from '@/components/ui/Icons';
+import { CloseIcon, CheckIcon, DownloadIcon, CopyIcon, BookOpenIcon } from '@/components/ui/Icons';
 
 interface PlaybookModalProps {
   isOpen: boolean;

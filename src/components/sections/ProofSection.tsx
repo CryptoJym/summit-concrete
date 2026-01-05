@@ -126,13 +126,13 @@ export function ProofSection() {
 
       <div className="container-main relative z-10">
         {/* Header */}
-        <div className="max-w-4xl mb-24">
+        <div className="max-w-4xl mb-32">
           <div
             className={`inline-flex items-center gap-3 mb-6 opacity-0 ${isVisible ? 'animate-slide-in-left' : ''}`}
           >
             <div className="h-px w-16 bg-gradient-to-r from-transparent to-safety" />
             <span className="text-safety text-sm font-semibold tracking-[0.2em] uppercase">
-              Our Work
+              Recent Projects
             </span>
           </div>
 
@@ -153,17 +153,16 @@ export function ProofSection() {
 
         {/* Category Tabs */}
         <div
-          className={`flex flex-wrap gap-6 mb-16 opacity-0 ${isVisible ? 'animate-slide-up delay-300' : ''}`}
+          className={`flex flex-wrap gap-6 mb-24 opacity-0 ${isVisible ? 'animate-slide-up delay-300' : ''}`}
         >
-          {proofGallery.categories.map((category, i) => (
+          {proofGallery.categories.map((category) => (
             <button
               key={category.id}
               onClick={() => setActiveCategory(category.id)}
-              className={`relative px-8 py-4 font-medium text-sm uppercase tracking-wider transition-all duration-300 ${
-                activeCategory === category.id
-                  ? 'bg-coal text-white'
-                  : 'bg-concrete text-coal hover:bg-coal/10'
-              }`}
+              className={`relative px-10 py-5 font-medium text-sm uppercase tracking-wider transition-all duration-300 ${activeCategory === category.id
+                ? 'bg-coal text-white'
+                : 'bg-concrete text-coal hover:bg-coal/10'
+                }`}
             >
               {/* Corner accent on active */}
               {activeCategory === category.id && (
@@ -174,9 +173,8 @@ export function ProofSection() {
               )}
               <span className="relative z-10">{category.label}</span>
               <span
-                className={`ml-2 text-xs ${
-                  activeCategory === category.id ? 'text-safety' : 'text-steel'
-                }`}
+                className={`ml-2 text-xs ${activeCategory === category.id ? 'text-safety' : 'text-steel'
+                  }`}
               >
                 {category.count}
               </span>
@@ -185,7 +183,7 @@ export function ProofSection() {
         </div>
 
         {/* Gallery Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 mb-28">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 mb-40">
           {(filteredImages.length > 0 ? filteredImages : galleryImages).map((image, index) => (
             <div
               key={image.id}
@@ -196,24 +194,21 @@ export function ProofSection() {
             >
               {/* Card Container */}
               <div
-                className={`relative transition-all duration-500 ${
-                  hoveredImage === index ? 'transform -translate-y-2' : ''
-                }`}
-              >
-                {/* Industrial Frame */}
-                <div
-                  className={`absolute -top-3 -left-3 w-10 h-10 border-l-2 border-t-2 transition-all duration-300 z-20 ${
-                    hoveredImage === index ? 'border-safety opacity-100' : 'border-sage opacity-30'
+                className={`relative transition-all duration-500 ${hoveredImage === index ? 'transform -translate-y-2' : ''
                   }`}
+              >
+                {/* Industrial Frame - RESTRICTED TO CORNERS ONLY */}
+                <div
+                  className={`absolute top-0 left-0 w-8 h-8 border-l-4 border-t-4 transition-all duration-300 z-20 ${hoveredImage === index ? 'border-safety opacity-100' : 'border-sage opacity-30'
+                    }`}
                 />
                 <div
-                  className={`absolute -bottom-3 -right-3 w-10 h-10 border-r-2 border-b-2 transition-all duration-300 z-20 ${
-                    hoveredImage === index ? 'border-sage opacity-100' : 'border-safety opacity-30'
-                  }`}
+                  className={`absolute bottom-0 right-0 w-8 h-8 border-r-4 border-b-4 transition-all duration-300 z-20 ${hoveredImage === index ? 'border-sage opacity-100' : 'border-safety opacity-30'
+                    }`}
                 />
 
                 {/* Image Container */}
-                <div className="relative aspect-[4/3] bg-concrete overflow-hidden">
+                <div className="relative aspect-[4/3] bg-concrete overflow-hidden m-2">
                   {/* Actual Image */}
                   <Image
                     src={image.src}
@@ -226,20 +221,19 @@ export function ProofSection() {
                   {/* Before Badge */}
                   {'isBefore' in image && image.isBefore && (
                     <div className="absolute top-4 left-4 z-10">
-                      <span className="bg-coal/80 text-white text-xs font-bold px-3 py-1.5 uppercase tracking-wider">
+                      <span className="bg-coal/90 text-white text-xs font-bold px-4 py-2 uppercase tracking-wider">
                         Before
                       </span>
                     </div>
                   )}
 
                   {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-coal/60 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-coal/80 via-transparent to-transparent" />
 
                   {/* Hover Overlay */}
                   <div
-                    className={`absolute inset-0 bg-coal/80 flex items-center justify-center transition-opacity duration-300 ${
-                      hoveredImage === index ? 'opacity-100' : 'opacity-0'
-                    }`}
+                    className={`absolute inset-0 bg-coal/90 flex items-center justify-center transition-opacity duration-300 ${hoveredImage === index ? 'opacity-100' : 'opacity-0'
+                      }`}
                   >
                     <div className="text-center">
                       <div
@@ -255,25 +249,22 @@ export function ProofSection() {
                   </div>
                 </div>
 
-                {/* Info Bar */}
+                {/* Info Bar - INCREASED PADDING */}
                 <div
-                  className={`p-6 transition-colors duration-300 ${
-                    hoveredImage === index ? 'bg-coal' : 'bg-white'
-                  }`}
+                  className={`p-10 transition-colors duration-300 ${hoveredImage === index ? 'bg-coal' : 'bg-white'
+                    }`}
                 >
-                  <div className="flex items-center justify-between gap-4">
+                  <div className="flex items-center justify-between gap-6">
                     <div>
                       <p
-                        className={`font-bold transition-colors duration-300 ${
-                          hoveredImage === index ? 'text-white' : 'text-coal'
-                        }`}
+                        className={`font-bold text-lg mb-2 transition-colors duration-300 ${hoveredImage === index ? 'text-white' : 'text-coal'
+                          }`}
                       >
                         {image.description}
                       </p>
                       <div
-                        className={`flex items-center gap-1 text-sm transition-colors duration-300 ${
-                          hoveredImage === index ? 'text-steel' : 'text-steel'
-                        }`}
+                        className={`flex items-center gap-2 text-sm transition-colors duration-300 ${hoveredImage === index ? 'text-steel' : 'text-steel'
+                          }`}
                       >
                         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -283,11 +274,10 @@ export function ProofSection() {
                       </div>
                     </div>
                     <div
-                      className={`w-10 h-10 flex items-center justify-center transition-colors duration-300 ${
-                        hoveredImage === index ? 'bg-sage text-white' : 'bg-sage/10 text-sage'
-                      }`}
+                      className={`w-12 h-12 shrink-0 flex items-center justify-center transition-colors duration-300 ${hoveredImage === index ? 'bg-sage text-white' : 'bg-sage/10 text-sage'
+                        }`}
                     >
-                      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
                     </div>
@@ -302,10 +292,10 @@ export function ProofSection() {
         <div
           className={`relative mb-24 opacity-0 ${isVisible ? 'animate-slide-up delay-600' : ''}`}
         >
-          <div className="relative p-12 lg:p-16 bg-ice">
-            {/* Corner accents */}
-            <div className="absolute top-0 left-0 w-12 h-12 border-l-2 border-t-2 border-sage -translate-x-2 -translate-y-2" />
-            <div className="absolute bottom-0 right-0 w-12 h-12 border-r-2 border-b-2 border-safety translate-x-2 translate-y-2" />
+          <div className="relative p-16 lg:p-20 bg-ice">
+            {/* Corner accents - MOVED FURTHER OUT */}
+            <div className="absolute top-0 left-0 w-16 h-16 border-l-4 border-t-4 border-sage -translate-x-1 -translate-y-1" />
+            <div className="absolute bottom-0 right-0 w-16 h-16 border-r-4 border-b-4 border-safety translate-x-1 translate-y-1" />
 
             <h3
               className="text-2xl lg:text-3xl font-bold text-coal mb-10 text-center"
@@ -315,7 +305,7 @@ export function ProofSection() {
             </h3>
 
             <div className="flex flex-wrap justify-center gap-10">
-              {proofGallery.cityAlbums.map((album, i) => (
+              {proofGallery.cityAlbums.map((album) => (
                 <button
                   key={album.city}
                   className="group flex items-center gap-6 bg-white px-12 py-7 shadow-sm hover:shadow-lg hover:bg-coal hover:text-white transition-all duration-300"

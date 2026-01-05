@@ -6,22 +6,19 @@ import { Footer } from '@/components/layout/Footer';
 import { StickyBar } from '@/components/layout/StickyBar';
 import {
   HeroSection,
-  SystemSection,
   ProcessSection,
   ProofSection,
-  PricingSection,
   ContactSection,
 } from '@/components/sections';
 import { PlaybookModal } from '@/components/PlaybookModal';
 
 export default function Home() {
-  const [mode, setMode] = useState<'diy' | 'dfy'>('dfy');
-  const [isPlaybookOpen, setIsPlaybookOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
+  const [isPlaybookOpen, setIsPlaybookOpen] = useState(false);
 
   // Scrollspy effect
   useEffect(() => {
-    const sections = ['hero', 'system', 'process', 'proof', 'pricing', 'contact'];
+    const sections = ['hero', 'process', 'proof', 'pricing', 'contact'];
 
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 200;
@@ -44,55 +41,35 @@ export default function Home() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const openPlaybook = () => {
-    setIsPlaybookOpen(true);
-  };
-
-  const closePlaybook = () => {
-    setIsPlaybookOpen(false);
-  };
-
   return (
-    <>
+    <main className="min-h-screen bg-ice selection:bg-safety selection:text-coal">
       <Header
-        mode={mode}
-        onModeChange={setMode}
         activeSection={activeSection}
-        onOpenPlaybook={openPlaybook}
+        onOpenPlaybook={() => setIsPlaybookOpen(true)}
       />
 
-      <main>
-        <HeroSection
-          mode={mode}
-          onModeChange={setMode}
-          onOpenPlaybook={openPlaybook}
-        />
+      <HeroSection
+        onOpenPlaybook={() => setIsPlaybookOpen(true)}
+      />
 
-        <SystemSection mode={mode} />
+      <ProofSection />
 
-        <ProcessSection />
+      <ProcessSection />
 
-        <ProofSection />
+      {/* PricingSection removed as it was B2B content */}
 
-        <PricingSection
-          mode={mode}
-          onOpenPlaybook={openPlaybook}
-        />
+      <ContactSection />
 
-        <ContactSection mode={mode} />
-      </main>
-
-      <Footer mode={mode} />
+      <Footer />
 
       <StickyBar
-        mode={mode}
-        onOpenPlaybook={openPlaybook}
+        onOpenPlaybook={() => setIsPlaybookOpen(true)}
       />
 
       <PlaybookModal
         isOpen={isPlaybookOpen}
-        onClose={closePlaybook}
+        onClose={() => setIsPlaybookOpen(false)}
       />
-    </>
+    </main>
   );
 }

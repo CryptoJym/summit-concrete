@@ -189,23 +189,20 @@ export function ProcessSection() {
                 >
                   {/* Timeline Dot */}
                   <div
-                    className={`absolute left-12 lg:left-1/2 top-0 w-6 h-6 -translate-x-1/2 rounded-full border-4 border-ice z-10 hidden md:flex items-center justify-center transition-all duration-500 ${
-                      activeStep === index ? 'scale-150' : ''
-                    } ${progress > (index / processSteps.steps.length) * 100 ? 'bg-sage' : 'bg-concrete'}`}
+                    className={`absolute left-12 lg:left-1/2 top-0 w-6 h-6 -translate-x-1/2 rounded-full border-4 border-ice z-10 hidden md:flex items-center justify-center transition-all duration-500 ${activeStep === index ? 'scale-150' : ''
+                      } ${progress > (index / processSteps.steps.length) * 100 ? 'bg-sage' : 'bg-concrete'}`}
                   />
 
                   <div className={`grid lg:grid-cols-2 gap-16 lg:gap-32 items-center ${isEven ? '' : ''}`}>
                     {/* Content Side */}
                     <div
-                      className={`${
-                        isEven ? 'lg:text-right lg:pr-20' : 'lg:order-2 lg:pl-20'
-                      } pl-24 md:pl-28 lg:pl-0`}
+                      className={`${isEven ? 'lg:text-right lg:pr-20' : 'lg:order-2 lg:pl-20'
+                        } pl-24 md:pl-28 lg:pl-0`}
                     >
                       {/* Step Label */}
                       <div
-                        className={`inline-flex items-center gap-5 mb-8 ${
-                          isEven ? 'lg:flex-row-reverse' : ''
-                        }`}
+                        className={`inline-flex items-center gap-5 mb-8 ${isEven ? 'lg:flex-row-reverse' : ''
+                          }`}
                       >
                         <span className="text-xs font-semibold tracking-[0.15em] uppercase text-sage">
                           Step {step.number}
@@ -228,36 +225,31 @@ export function ProcessSection() {
                     {/* Visual Card Side */}
                     <div className={`${isEven ? 'lg:order-2' : ''} pl-24 md:pl-28 lg:pl-0`}>
                       <div
-                        className={`relative group transition-all duration-500 cursor-pointer ${
-                          activeStep === index ? 'transform lg:-translate-y-2' : ''
-                        }`}
+                        className={`relative group transition-all duration-500 cursor-pointer ${activeStep === index ? 'transform lg:-translate-y-2' : ''
+                          }`}
                       >
                         {/* Card */}
                         <div
-                          className={`relative p-14 lg:p-16 transition-all duration-300 ${
-                            activeStep === index
-                              ? 'bg-coal shadow-2xl'
-                              : 'bg-white shadow-lg hover:shadow-xl'
-                          }`}
+                          className={`relative p-14 lg:p-16 transition-all duration-300 ${activeStep === index
+                            ? 'bg-coal shadow-2xl'
+                            : 'bg-white shadow-lg hover:shadow-xl'
+                            }`}
                         >
                           {/* Industrial corner accents */}
                           <div
-                            className={`absolute top-0 left-0 w-12 h-12 border-l-2 border-t-2 -translate-x-2 -translate-y-2 transition-all duration-300 ${
-                              activeStep === index ? 'border-safety opacity-100' : 'border-sage opacity-40'
-                            }`}
+                            className={`absolute top-0 left-0 w-12 h-12 border-l-2 border-t-2 -translate-x-2 -translate-y-2 transition-all duration-300 ${activeStep === index ? 'border-safety opacity-100' : 'border-sage opacity-40'
+                              }`}
                           />
                           <div
-                            className={`absolute bottom-0 right-0 w-12 h-12 border-r-2 border-b-2 translate-x-2 translate-y-2 transition-all duration-300 ${
-                              activeStep === index ? 'border-sage opacity-100' : 'border-safety opacity-40'
-                            }`}
+                            className={`absolute bottom-0 right-0 w-12 h-12 border-r-2 border-b-2 translate-x-2 translate-y-2 transition-all duration-300 ${activeStep === index ? 'border-sage opacity-100' : 'border-safety opacity-40'
+                              }`}
                           />
 
                           <div className="flex items-center gap-12">
                             {/* Large Number */}
                             <div
-                              className={`text-7xl lg:text-8xl font-bold transition-colors duration-300 ${
-                                activeStep === index ? 'text-safety' : 'text-concrete'
-                              }`}
+                              className={`text-7xl lg:text-8xl font-bold transition-colors duration-300 ${activeStep === index ? 'text-safety' : 'text-concrete'
+                                }`}
                               style={{ fontFamily: 'var(--font-display)' }}
                             >
                               0{step.number}
@@ -266,18 +258,16 @@ export function ProcessSection() {
                             <div className="flex-1">
                               {/* Icon */}
                               <div
-                                className={`mb-6 transition-colors duration-300 ${
-                                  activeStep === index ? 'text-safety' : 'text-sage'
-                                }`}
+                                className={`mb-6 transition-colors duration-300 ${activeStep === index ? 'text-safety' : 'text-sage'
+                                  }`}
                               >
                                 {Icon}
                               </div>
 
                               {/* Title */}
                               <div
-                                className={`text-lg font-bold transition-colors duration-300 ${
-                                  activeStep === index ? 'text-white' : 'text-coal'
-                                }`}
+                                className={`text-lg font-bold transition-colors duration-300 ${activeStep === index ? 'text-white' : 'text-coal'
+                                  }`}
                               >
                                 {step.title}
                               </div>
@@ -288,9 +278,8 @@ export function ProcessSection() {
                           <div className="mt-12 pt-8 border-t border-current/10">
                             <div className="flex items-center gap-6">
                               <div
-                                className={`flex-1 h-1 rounded-full overflow-hidden ${
-                                  activeStep === index ? 'bg-white/20' : 'bg-concrete'
-                                }`}
+                                className={`flex-1 h-1 rounded-full overflow-hidden ${activeStep === index ? 'bg-white/20' : 'bg-concrete'
+                                  }`}
                               >
                                 <div
                                   className="h-full bg-sage transition-all duration-500"
@@ -300,9 +289,8 @@ export function ProcessSection() {
                                 />
                               </div>
                               <span
-                                className={`text-xs font-medium transition-colors duration-300 ${
-                                  activeStep === index ? 'text-white/60' : 'text-steel'
-                                }`}
+                                className={`text-xs font-medium transition-colors duration-300 ${activeStep === index ? 'text-white/60' : 'text-steel'
+                                  }`}
                               >
                                 {step.number}/{processSteps.steps.length}
                               </span>
@@ -318,36 +306,46 @@ export function ProcessSection() {
           </div>
         </div>
 
-        {/* Bottom Trust Bar */}
+        {/* Bottom Trust Bar - REDESIGNED */}
         <div
-          className={`mt-44 opacity-0 ${isVisible ? 'animate-slide-up delay-700' : ''}`}
+          className={`mt-48 opacity-0 ${isVisible ? 'animate-slide-up delay-700' : ''}`}
         >
-          <div className="relative p-20 lg:p-28 bg-coal">
-            {/* Corner accents */}
-            <div className="absolute top-0 left-0 w-16 h-16 border-l-2 border-t-2 border-safety -translate-x-2 -translate-y-2" />
-            <div className="absolute bottom-0 right-0 w-16 h-16 border-r-2 border-b-2 border-sage translate-x-2 translate-y-2" />
+          <div className="relative bg-coal p-16 lg:p-24 overflow-hidden">
+            {/* Background Pattern */}
+            <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle at 50% 50%, #ffffff 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
 
-            {/* Stacked layout - title on top, checkpoints below */}
-            <div className="text-center mb-20">
+            {/* Corner accents */}
+            <div className="absolute top-0 left-0 w-20 h-20 border-l-4 border-t-4 border-safety/30" />
+            <div className="absolute bottom-0 right-0 w-20 h-20 border-r-4 border-b-4 border-sage/30" />
+
+            <div className="relative z-10 text-center max-w-4xl mx-auto mb-20">
+              <div className="inline-block bg-white/5 border border-white/10 px-6 py-2 rounded-full mb-8">
+                <span className="text-safety text-sm font-bold uppercase tracking-[0.2em]">Our Guarantee</span>
+              </div>
               <h3
-                className="text-xl lg:text-2xl font-bold text-white mb-6"
+                className="text-3xl lg:text-4xl font-bold text-white mb-6 leading-tight"
                 style={{ fontFamily: 'var(--font-display)' }}
               >
-                QUALITY CHECKPOINTS
+                EVERY JOB FOLLOWS OUR <span className="text-safety">VERIFIED PROCESS</span>
               </h3>
-              <p className="text-steel text-lg">Every job follows our verified process</p>
+              <p className="text-steel text-xl">We don&apos;t cut corners. From tear-out to finish, your driveway is built to last.</p>
             </div>
 
             {/* Grid layout for checkpoints with generous breathing room */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-14">
-              {['Proper base prep', 'Clean forming', 'Correct joints', 'Proper cure'].map(
-                (item, i) => (
-                  <div
-                    key={i}
-                    className="flex items-center justify-center gap-6 px-12 py-10 bg-white/5 border border-white/10"
-                  >
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+              {[
+                { label: 'Proper Base Prep', desc: 'Compacted road base' },
+                { label: 'Clean Forming', desc: 'Straight, crisp lines' },
+                { label: 'Correct Joints', desc: 'Control cracking' },
+                { label: 'Proper Cure', desc: 'Sealed for longevity' }
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  className="flex flex-col items-center justify-center text-center p-12 bg-white/5 border border-white/10 hover:bg-white/10 transition-colors duration-300 group"
+                >
+                  <div className="w-12 h-12 rounded-full bg-sage/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                     <svg
-                      className="w-5 h-5 text-sage flex-shrink-0"
+                      className="w-6 h-6 text-sage"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -359,10 +357,11 @@ export function ProcessSection() {
                         d="M5 13l4 4L19 7"
                       />
                     </svg>
-                    <span className="text-white text-base font-medium">{item}</span>
                   </div>
-                )
-              )}
+                  <span className="text-white text-lg font-bold uppercase tracking-wide mb-2">{item.label}</span>
+                  <span className="text-steel text-sm">{item.desc}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>

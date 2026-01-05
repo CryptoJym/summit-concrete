@@ -44,6 +44,7 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body
         className={`${dmSans.variable} ${bebasNeue.variable} ${jetbrainsMono.variable} font-sans antialiased bg-ice text-coal`}
+        suppressHydrationWarning={true}
       >
         {children}
       </body>

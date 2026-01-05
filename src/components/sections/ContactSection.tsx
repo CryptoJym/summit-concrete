@@ -3,11 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { brand } from '@/lib/content';
 
-interface ContactSectionProps {
-  mode: 'diy' | 'dfy';
-}
-
-interface FormData {
+interface ContactFormData {
   name: string;
   phone: string;
   email: string;
@@ -19,10 +15,10 @@ interface FormData {
   message: string;
 }
 
-export function ContactSection({ mode }: ContactSectionProps) {
+export function ContactSection() {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
-  const [formData, setFormData] = useState<FormData>({
+  const [formData, setFormData] = useState<ContactFormData>({
     name: '',
     phone: '',
     email: '',
@@ -188,22 +184,18 @@ export function ContactSection({ mode }: ContactSectionProps) {
             <h2
               className={`hero-headline text-4xl sm:text-5xl lg:text-6xl text-white mb-6 opacity-0 ${isVisible ? 'animate-slide-up delay-100' : ''}`}
             >
-              {mode === 'diy'
-                ? 'Questions About the Playbook?'
-                : 'Get Your Free Quote'}
+              Get Your Free Quote
             </h2>
 
             <p
               className={`text-xl text-steel mb-10 lg:mb-14 max-w-lg opacity-0 ${isVisible ? 'animate-slide-up delay-200' : ''}`}
             >
-              {mode === 'diy'
-                ? 'We\'re here to help you build your lead engine. Reach out anytime.'
-                : 'Tell us about your project and we\'ll provide a detailed estimate within 24 hours.'}
+              Tell us about your project and we&apos;ll provide a detailed estimate within 24 hours.
             </p>
 
             {/* Contact Methods */}
             <div
-              className={`space-y-5 lg:space-y-6 mb-14 lg:mb-16 opacity-0 ${isVisible ? 'animate-slide-up delay-300' : ''}`}
+              className={`space-y-6 lg:space-y-8 mb-20 opacity-0 ${isVisible ? 'animate-slide-up delay-300' : ''}`}
             >
               <a
                 href={`tel:${brand.phone}`}
@@ -293,15 +285,15 @@ export function ContactSection({ mode }: ContactSectionProps) {
               <div className="absolute -bottom-4 -right-4 w-16 h-16 border-r-2 border-b-2 border-sage" />
 
               {/* Form Card */}
-              <div className="relative bg-white p-10 sm:p-12 lg:p-16 xl:p-20 shadow-2xl">
+              <div className="relative bg-white p-12 sm:p-16 lg:p-24 shadow-2xl">
                 <h3
-                  className="text-2xl font-bold text-coal mb-12 lg:mb-14 pb-8 lg:pb-10 border-b border-concrete"
+                  className="text-3xl font-bold text-coal mb-12 pb-8 border-b border-concrete"
                   style={{ fontFamily: 'var(--font-display)' }}
                 >
                   REQUEST YOUR QUOTE
                 </h3>
 
-                <form onSubmit={handleSubmit} className="space-y-8 lg:space-y-10">
+                <form onSubmit={handleSubmit} className="space-y-8">
                   {/* Name */}
                   <div>
                     <label htmlFor="name" className="block text-sm font-semibold text-coal mb-3.5 uppercase tracking-wider">
@@ -316,9 +308,8 @@ export function ContactSection({ mode }: ContactSectionProps) {
                       onChange={handleChange}
                       onFocus={() => setFocusedField('name')}
                       onBlur={() => setFocusedField(null)}
-                      className={`w-full px-5 py-4 border-2 bg-ice text-coal placeholder-steel/50 focus:outline-none transition-colors ${
-                        focusedField === 'name' ? 'border-safety' : 'border-concrete'
-                      }`}
+                      className={`w-full px-6 py-4 border bg-ice text-coal placeholder-steel/50 focus:outline-none transition-colors ${focusedField === 'name' ? 'border-safety' : 'border-concrete'
+                        }`}
                       placeholder="John Smith"
                     />
                   </div>
@@ -338,9 +329,8 @@ export function ContactSection({ mode }: ContactSectionProps) {
                         onChange={handleChange}
                         onFocus={() => setFocusedField('phone')}
                         onBlur={() => setFocusedField(null)}
-                        className={`w-full px-5 py-4 border-2 bg-ice text-coal placeholder-steel/50 focus:outline-none transition-colors ${
-                          focusedField === 'phone' ? 'border-safety' : 'border-concrete'
-                        }`}
+                        className={`w-full px-6 py-4 border bg-ice text-coal placeholder-steel/50 focus:outline-none transition-colors ${focusedField === 'phone' ? 'border-safety' : 'border-concrete'
+                          }`}
                         placeholder="(801) 555-1234"
                       />
                     </div>
@@ -356,9 +346,8 @@ export function ContactSection({ mode }: ContactSectionProps) {
                         onChange={handleChange}
                         onFocus={() => setFocusedField('email')}
                         onBlur={() => setFocusedField(null)}
-                        className={`w-full px-5 py-4 border-2 bg-ice text-coal placeholder-steel/50 focus:outline-none transition-colors ${
-                          focusedField === 'email' ? 'border-safety' : 'border-concrete'
-                        }`}
+                        className={`w-full px-6 py-4 border bg-ice text-coal placeholder-steel/50 focus:outline-none transition-colors ${focusedField === 'email' ? 'border-safety' : 'border-concrete'
+                          }`}
                         placeholder="john@example.com"
                       />
                     </div>
@@ -378,9 +367,8 @@ export function ContactSection({ mode }: ContactSectionProps) {
                       onChange={handleChange}
                       onFocus={() => setFocusedField('address')}
                       onBlur={() => setFocusedField(null)}
-                      className={`w-full px-5 py-4 border-2 bg-ice text-coal placeholder-steel/50 focus:outline-none transition-colors ${
-                        focusedField === 'address' ? 'border-safety' : 'border-concrete'
-                      }`}
+                      className={`w-full px-6 py-4 border bg-ice text-coal placeholder-steel/50 focus:outline-none transition-colors ${focusedField === 'address' ? 'border-safety' : 'border-concrete'
+                        }`}
                       placeholder="123 Main St, Orem, UT"
                     />
                   </div>
@@ -399,9 +387,8 @@ export function ContactSection({ mode }: ContactSectionProps) {
                         onChange={handleChange}
                         onFocus={() => setFocusedField('projectType')}
                         onBlur={() => setFocusedField(null)}
-                        className={`w-full px-5 py-4 border-2 bg-ice text-coal focus:outline-none transition-colors ${
-                          focusedField === 'projectType' ? 'border-safety' : 'border-concrete'
-                        }`}
+                        className={`w-full px-6 py-4 border bg-ice text-coal focus:outline-none transition-colors ${focusedField === 'projectType' ? 'border-safety' : 'border-concrete'
+                          }`}
                       >
                         <option value="">Select type...</option>
                         {projectTypes.map((type) => (
@@ -422,9 +409,8 @@ export function ContactSection({ mode }: ContactSectionProps) {
                         onChange={handleChange}
                         onFocus={() => setFocusedField('timeline')}
                         onBlur={() => setFocusedField(null)}
-                        className={`w-full px-5 py-4 border-2 bg-ice text-coal focus:outline-none transition-colors ${
-                          focusedField === 'timeline' ? 'border-safety' : 'border-concrete'
-                        }`}
+                        className={`w-full px-6 py-4 border bg-ice text-coal focus:outline-none transition-colors ${focusedField === 'timeline' ? 'border-safety' : 'border-concrete'
+                          }`}
                       >
                         <option value="">When needed?</option>
                         {timelines.map((timeline) => (
@@ -450,9 +436,8 @@ export function ContactSection({ mode }: ContactSectionProps) {
                         onChange={handleChange}
                         onFocus={() => setFocusedField('squareFootage')}
                         onBlur={() => setFocusedField(null)}
-                        className={`w-full px-5 py-4 border-2 bg-ice text-coal placeholder-steel/50 focus:outline-none transition-colors ${
-                          focusedField === 'squareFootage' ? 'border-safety' : 'border-concrete'
-                        }`}
+                        className={`w-full px-5 py-4 border-2 bg-ice text-coal placeholder-steel/50 focus:outline-none transition-colors ${focusedField === 'squareFootage' ? 'border-safety' : 'border-concrete'
+                          }`}
                         placeholder="e.g., 500 sq ft"
                       />
                     </div>
@@ -467,9 +452,8 @@ export function ContactSection({ mode }: ContactSectionProps) {
                         onChange={handleChange}
                         onFocus={() => setFocusedField('hasExistingConcrete')}
                         onBlur={() => setFocusedField(null)}
-                        className={`w-full px-5 py-4 border-2 bg-ice text-coal focus:outline-none transition-colors ${
-                          focusedField === 'hasExistingConcrete' ? 'border-safety' : 'border-concrete'
-                        }`}
+                        className={`w-full px-5 py-4 border-2 bg-ice text-coal focus:outline-none transition-colors ${focusedField === 'hasExistingConcrete' ? 'border-safety' : 'border-concrete'
+                          }`}
                       >
                         <option value="">Select...</option>
                         <option value="yes">Yes, needs removal</option>
@@ -492,9 +476,8 @@ export function ContactSection({ mode }: ContactSectionProps) {
                       onChange={handleChange}
                       onFocus={() => setFocusedField('message')}
                       onBlur={() => setFocusedField(null)}
-                      className={`w-full px-5 py-4 border-2 bg-ice text-coal placeholder-steel/50 focus:outline-none resize-none transition-colors ${
-                        focusedField === 'message' ? 'border-safety' : 'border-concrete'
-                      }`}
+                      className={`w-full px-5 py-4 border-2 bg-ice text-coal placeholder-steel/50 focus:outline-none resize-none transition-colors ${focusedField === 'message' ? 'border-safety' : 'border-concrete'
+                        }`}
                       placeholder="Tell us more about your project..."
                     />
                   </div>
