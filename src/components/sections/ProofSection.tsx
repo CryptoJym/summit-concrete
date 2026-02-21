@@ -24,18 +24,18 @@ export function ProofSection() {
   }, []);
 
   return (
-    <section ref={ref} id="proof" className="py-20 lg:py-28 bg-base">
+    <section ref={ref} id="proof" className="py-24 lg:py-36 bg-base">
       <div className="container-main">
-        <div className="max-w-xl mb-12">
-          <p className={`text-sm font-semibold text-amber tracking-wide uppercase mb-4 opacity-0 ${isVisible ? 'animate-in' : ''}`}>
+        <div className="max-w-xl mb-16 lg:mb-20">
+          <p className={`text-sm font-semibold text-amber tracking-wide uppercase mb-5 opacity-0 ${isVisible ? 'animate-in' : ''}`}>
             Recent Work
           </p>
-          <h2 className={`font-display text-3xl sm:text-4xl font-bold text-ink leading-tight opacity-0 ${isVisible ? 'animate-in delay-1' : ''}`}>
+          <h2 className={`font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-ink leading-tight opacity-0 ${isVisible ? 'animate-in delay-1' : ''}`}>
             Projects across Utah.
           </h2>
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-4">
+        <div className="grid sm:grid-cols-2 gap-6">
           {images.map((img, i) => (
             <div
               key={i}
@@ -49,8 +49,8 @@ export function ProofSection() {
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
                 sizes="(max-width: 640px) 100vw, 50vw"
               />
-              <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-ink/50 to-transparent">
-                <p className="text-white text-sm font-medium">{img.label}</p>
+              <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-ink/60 to-transparent">
+                <p className="text-white font-medium">{img.label}</p>
               </div>
             </div>
           ))}
