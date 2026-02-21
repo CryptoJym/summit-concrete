@@ -39,7 +39,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-ice selection:bg-safety selection:text-coal">
+    <main className="min-h-screen bg-base selection:bg-amber selection:text-white">
       <Header
         activeSection={activeSection}
       />
