@@ -32,7 +32,7 @@ export function HeroSection() {
               Utah&apos;s Trusted Concrete Contractor
             </p>
 
-            <h1 className={`font-display text-[2.75rem] sm:text-6xl lg:text-7xl xl:text-[5.5rem] font-bold text-ink leading-[0.95] tracking-tight mb-8 opacity-0 ${isLoaded ? 'animate-in delay-1' : ''}`}>
+            <h1 className={`font-display text-[2.75rem] sm:text-6xl lg:text-7xl xl:text-[5.5rem] font-bold text-ink leading-[1.05] tracking-tight mb-8 opacity-0 ${isLoaded ? 'animate-in delay-1' : ''}`}>
               Tear-Out &<br />
               <span className="text-amber">Repour</span><br />
               Done Right.
@@ -103,19 +103,18 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* Stats */}
+      {/* Stats — single line */}
       <div className="container-main relative z-10">
-        <div className={`border-t border-edge py-10 opacity-0 ${isLoaded ? 'animate-in delay-5' : ''}`}>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-3xl">
+        <div className={`border-t border-edge py-8 opacity-0 ${isLoaded ? 'animate-in delay-5' : ''}`}>
+          <div className="flex flex-wrap gap-x-10 gap-y-4 justify-center lg:justify-start">
             {[
-              { value: '15+', label: 'Years Experience' },
-              { value: '500+', label: 'Projects Completed' },
-              { value: '4.9', label: 'Star Rating' },
-              { value: '4', label: 'Counties Served' },
+              { value: '15+', label: 'Years' },
+              { value: '500+', label: 'Projects' },
+              { value: '4.9★', label: 'Rating' },
             ].map((stat, i) => (
-              <div key={i} className="text-center lg:text-left">
-                <div className="text-3xl lg:text-4xl font-bold text-ink font-display">{stat.value}</div>
-                <div className="text-xs text-ink-faded uppercase tracking-wider mt-1">{stat.label}</div>
+              <div key={i} className="flex items-baseline gap-2">
+                <span className="text-2xl font-bold text-ink font-display">{stat.value}</span>
+                <span className="text-sm text-ink-faded">{stat.label}</span>
               </div>
             ))}
           </div>
