@@ -39,20 +39,20 @@ export function HeroSection() {
                 Done Right.
               </h1>
 
-              <p className={`text-lg lg:text-xl text-ink-faded max-w-md mx-auto lg:mx-0 mb-12 leading-relaxed opacity-0 ${isLoaded ? 'animate-in delay-2' : ''}`}>
+              <p className={`text-lg lg:text-xl text-ink-faded max-w-md mx-auto lg:mx-0 mb-14 leading-relaxed opacity-0 ${isLoaded ? 'animate-in delay-2' : ''}`}>
                 We replace cracked concrete with driveways you&apos;re proud of.
               </p>
 
-              <div className={`flex flex-col sm:flex-row gap-4 justify-center lg:justify-start opacity-0 ${isLoaded ? 'animate-in delay-3' : ''}`}>
+              <div className={`flex flex-col sm:flex-row gap-5 justify-center lg:justify-start opacity-0 ${isLoaded ? 'animate-in delay-3' : ''}`}>
                 <button
                   onClick={() => scrollTo('contact')}
-                  className="px-10 py-4 bg-amber text-white font-semibold text-lg hover:bg-amber-hover transition-colors"
+                  className="px-10 py-4 bg-amber text-white font-semibold text-lg rounded-lg hover:bg-amber-hover transition-all duration-300 hover:shadow-lg hover:shadow-amber/20"
                 >
                   Get Free Estimate
                 </button>
                 <button
                   onClick={() => scrollTo('process')}
-                  className="px-10 py-4 border border-edge text-ink font-semibold hover:bg-base-alt transition-colors"
+                  className="px-10 py-4 border-2 border-edge text-ink font-semibold rounded-lg hover:bg-base-alt hover:border-ink-faded/30 transition-all duration-300"
                 >
                   How It Works
                 </button>
@@ -62,13 +62,13 @@ export function HeroSection() {
             {/* Image */}
             <div className="lg:col-span-5 relative hidden lg:block">
               <div className={`relative aspect-[3/4] max-w-md mx-auto opacity-0 ${isLoaded ? 'animate-in delay-2' : ''}`}>
-                <div className="relative h-full w-full overflow-hidden shadow-2xl shadow-ink/10">
+                <div className="relative h-full w-full overflow-hidden rounded-2xl shadow-2xl shadow-ink/15">
                   <Image src="/images/hero/hero-workers.png" alt="Professional concrete work by Summit Concrete" fill className="object-cover" priority />
-                  <div className="absolute inset-0 bg-gradient-to-t from-ink/30 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-ink/40 via-ink/10 to-transparent" />
                 </div>
 
                 {/* Rating badge */}
-                <div className="absolute -bottom-6 -left-6 bg-white py-5 px-6 shadow-xl flex items-center gap-5">
+                <div className="absolute -bottom-5 -left-5 bg-white rounded-xl py-5 px-6 shadow-xl shadow-ink/10 flex items-center gap-5">
                   <div>
                     <span className="text-3xl font-bold text-ink font-display">4.9</span>
                     <div className="flex gap-0.5 mt-1">
@@ -91,9 +91,9 @@ export function HeroSection() {
         </div>
       </section>
 
-      {/* Stats band — full width dark */}
+      {/* Stats band */}
       <div className={`bg-ink opacity-0 ${isLoaded ? 'animate-in delay-5' : ''}`}>
-        <div className="container-main py-12 lg:py-16">
+        <div className="container-main py-14 lg:py-16">
           <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto lg:mx-0 text-center lg:text-left">
             {[
               { value: '15+', label: 'Years Experience' },

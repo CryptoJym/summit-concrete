@@ -44,7 +44,7 @@ export function ContactSection() {
             </p>
             <a
               href={`tel:${brand.phone}`}
-              className="inline-block px-8 py-4 bg-amber text-white text-lg font-semibold hover:bg-amber-hover transition-colors"
+              className="inline-block px-8 py-4 bg-amber text-white text-lg font-semibold rounded-lg hover:bg-amber-hover transition-all duration-300"
             >
               Call Us Now
             </a>
@@ -54,7 +54,7 @@ export function ContactSection() {
     );
   }
 
-  const inputClass = 'w-full px-6 py-4 border border-white/15 bg-white/5 text-white placeholder-white/30 focus:border-amber focus:bg-white/10 transition-colors text-base';
+  const inputClass = 'w-full px-6 py-4 border border-white/15 bg-white/5 text-white placeholder-white/30 rounded-lg focus:border-amber focus:bg-white/10 transition-all duration-300 text-base';
 
   return (
     <section ref={ref} id="contact" className="py-28 lg:py-40 bg-ink">
@@ -98,7 +98,7 @@ export function ContactSection() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full py-5 bg-amber text-white text-lg font-bold hover:bg-amber-hover transition-colors disabled:opacity-50"
+              className="w-full py-5 bg-amber text-white text-lg font-bold rounded-lg hover:bg-amber-hover transition-all duration-300 hover:shadow-lg hover:shadow-amber/25 disabled:opacity-50"
             >
               {isSubmitting ? 'Sending...' : 'Get Free Quote'}
             </button>

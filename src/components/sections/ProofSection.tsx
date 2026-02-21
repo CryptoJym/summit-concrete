@@ -39,14 +39,14 @@ export function ProofSection() {
           {images.map((img, i) => (
             <div
               key={i}
-              className={`group relative aspect-[4/3] overflow-hidden bg-base-alt opacity-0 ${isVisible ? 'animate-in' : ''}`}
+              className={`group relative aspect-[4/3] overflow-hidden rounded-2xl bg-base-alt shadow-lg shadow-ink/5 opacity-0 ${isVisible ? 'animate-in' : ''}`}
               style={{ animationDelay: `${200 + i * 100}ms` }}
             >
               <Image
                 src={img.src}
                 alt={img.label}
                 fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 sizes="(max-width: 640px) 100vw, 50vw"
               />
               <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-ink/60 to-transparent">
