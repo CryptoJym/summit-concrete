@@ -3,11 +3,7 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
-interface HeroSectionProps {
-  onOpenPlaybook?: () => void;
-}
-
-export function HeroSection({ onOpenPlaybook }: HeroSectionProps) {
+export function HeroSection() {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
@@ -71,16 +67,10 @@ export function HeroSection({ onOpenPlaybook }: HeroSectionProps) {
           }}
         />
 
-        {/* Large decorative number */}
-        <div
-          className="absolute -right-20 top-20 text-[40rem] font-display leading-none text-coal/[0.02] select-none pointer-events-none hidden xl:block"
-          style={{ fontFamily: 'var(--font-display)' }}
-        >
-          01
-        </div>
+        {/* Large decorative number removed for cleaner layout */}
       </div>
 
-      <div className="container-main relative z-10 pt-64 pb-48 lg:pt-96 lg:pb-64">
+      <div className="container-main relative z-10 pt-32 pb-16 lg:pt-40 lg:pb-24">
 
         <div className="grid lg:grid-cols-12 gap-16 lg:gap-20 items-center">
           {/* Left Column - Content (7 cols) */}
@@ -106,7 +96,7 @@ export function HeroSection({ onOpenPlaybook }: HeroSectionProps) {
 
             {/* CTA Buttons */}
             <div
-              className={`flex flex-col sm:flex-row gap-6 justify-center lg:justify-start mb-32 opacity-0 ${isLoaded ? 'animate-slide-up delay-300' : ''}`}
+              className={`flex flex-col sm:flex-row gap-6 justify-center lg:justify-start mb-16 opacity-0 ${isLoaded ? 'animate-slide-up delay-300' : ''}`}
             >
               {/* Primary CTA - REDESIGNED: Yellow/Safety */}
               <button
@@ -226,7 +216,7 @@ export function HeroSection({ onOpenPlaybook }: HeroSectionProps) {
       {/* Stats Bar aligned with container */}
       <div className="container-main">
         <div
-          className={`mt-20 lg:mt-32 border-t border-coal/10 pt-10 opacity-0 ${isLoaded ? 'animate-slide-up delay-500' : ''}`}
+          className={`mt-12 lg:mt-16 border-t border-coal/10 pt-10 opacity-0 ${isLoaded ? 'animate-slide-up delay-500' : ''}`}
         >
           <div className="grid grid-cols-2 gap-8 lg:gap-16 max-w-2xl">
             {stats.map((stat, index) => (

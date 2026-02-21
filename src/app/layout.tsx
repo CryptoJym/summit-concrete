@@ -46,6 +46,12 @@ export default function RootLayout({
         className={`${dmSans.variable} ${bebasNeue.variable} ${jetbrainsMono.variable} font-sans antialiased bg-ice text-coal`}
         suppressHydrationWarning={true}
       >
+        <a
+          href="#contact"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-safety focus:text-coal focus:px-6 focus:py-3 focus:font-bold focus:uppercase focus:tracking-wider"
+        >
+          Skip to contact form
+        </a>
         {children}
       </body>
     </html>

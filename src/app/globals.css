@@ -8,7 +8,8 @@
   --concrete: #E7E5E0;
   --concrete-dark: #d4d1ca;
   --ice: #F7F8FA;
-  --steel: #8A949E;
+  --steel: #636B74;
+  --steel-muted: #8A949E;
   --steel-dark: #5c6670;
 
   /* Accent Colors */
@@ -696,6 +697,21 @@ input:focus, textarea:focus, select:focus {
 .tab-inactive {
   border-bottom: 2px solid transparent;
   color: var(--steel);
+}
+
+/* Focus-visible styles for accessibility */
+:focus-visible {
+  outline: 3px solid var(--safety);
+  outline-offset: 2px;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--safety);
+  outline-offset: 2px;
 }
 
 /* Print styles for playbook */

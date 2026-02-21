@@ -89,7 +89,7 @@ export function ProcessSection() {
     <section
       ref={sectionRef}
       id="process"
-      className="relative py-36 lg:py-48 bg-ice overflow-hidden"
+      className="relative py-20 lg:py-28 bg-ice overflow-hidden"
     >
       {/* Background Elements */}
       <div className="absolute inset-0">
@@ -113,18 +113,12 @@ export function ProcessSection() {
           }}
         />
 
-        {/* Large text background */}
-        <div
-          className="absolute right-0 top-1/2 -translate-y-1/2 text-[15rem] font-display leading-none text-coal/[0.02] select-none pointer-events-none hidden xl:block whitespace-nowrap"
-          style={{ fontFamily: 'var(--font-display)' }}
-        >
-          PROCESS
-        </div>
+        {/* Background watermark text removed for cleaner layout */}
       </div>
 
       <div className="container-main relative z-10">
         {/* Header */}
-        <div className="max-w-4xl mb-28">
+        <div className="max-w-4xl mb-16">
           <div
             className={`inline-flex items-center gap-4 mb-8 opacity-0 ${isVisible ? 'animate-slide-in-left' : ''}`}
           >
@@ -235,16 +229,6 @@ export function ProcessSection() {
                             : 'bg-white shadow-lg hover:shadow-xl'
                             }`}
                         >
-                          {/* Industrial corner accents */}
-                          <div
-                            className={`absolute top-0 left-0 w-12 h-12 border-l-2 border-t-2 -translate-x-2 -translate-y-2 transition-all duration-300 ${activeStep === index ? 'border-safety opacity-100' : 'border-sage opacity-40'
-                              }`}
-                          />
-                          <div
-                            className={`absolute bottom-0 right-0 w-12 h-12 border-r-2 border-b-2 translate-x-2 translate-y-2 transition-all duration-300 ${activeStep === index ? 'border-sage opacity-100' : 'border-safety opacity-40'
-                              }`}
-                          />
-
                           <div className="flex items-center gap-12">
                             {/* Large Number */}
                             <div
@@ -308,17 +292,13 @@ export function ProcessSection() {
 
         {/* Bottom Trust Bar - REDESIGNED */}
         <div
-          className={`mt-48 opacity-0 ${isVisible ? 'animate-slide-up delay-700' : ''}`}
+          className={`mt-20 opacity-0 ${isVisible ? 'animate-slide-up delay-700' : ''}`}
         >
           <div className="relative bg-coal p-16 lg:p-24 overflow-hidden">
             {/* Background Pattern */}
             <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle at 50% 50%, #ffffff 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
 
-            {/* Corner accents */}
-            <div className="absolute top-0 left-0 w-20 h-20 border-l-4 border-t-4 border-safety/30" />
-            <div className="absolute bottom-0 right-0 w-20 h-20 border-r-4 border-b-4 border-sage/30" />
-
-            <div className="relative z-10 text-center max-w-4xl mx-auto mb-20">
+            <div className="relative z-10 text-center max-w-4xl mx-auto mb-16">
               <div className="inline-block bg-white/5 border border-white/10 px-6 py-2 rounded-full mb-8">
                 <span className="text-safety text-sm font-bold uppercase tracking-[0.2em]">Our Guarantee</span>
               </div>

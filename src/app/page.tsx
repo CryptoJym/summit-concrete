@@ -10,15 +10,12 @@ import {
   ProofSection,
   ContactSection,
 } from '@/components/sections';
-import { PlaybookModal } from '@/components/PlaybookModal';
-
 export default function Home() {
   const [activeSection, setActiveSection] = useState('hero');
-  const [isPlaybookOpen, setIsPlaybookOpen] = useState(false);
 
   // Scrollspy effect
   useEffect(() => {
-    const sections = ['hero', 'process', 'proof', 'pricing', 'contact'];
+    const sections = ['hero', 'process', 'proof', 'contact'];
 
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 200;
@@ -45,12 +42,9 @@ export default function Home() {
     <main className="min-h-screen bg-ice selection:bg-safety selection:text-coal">
       <Header
         activeSection={activeSection}
-        onOpenPlaybook={() => setIsPlaybookOpen(true)}
       />
 
-      <HeroSection
-        onOpenPlaybook={() => setIsPlaybookOpen(true)}
-      />
+      <HeroSection />
 
       <ProofSection />
 
@@ -62,14 +56,7 @@ export default function Home() {
 
       <Footer />
 
-      <StickyBar
-        onOpenPlaybook={() => setIsPlaybookOpen(true)}
-      />
-
-      <PlaybookModal
-        isOpen={isPlaybookOpen}
-        onClose={() => setIsPlaybookOpen(false)}
-      />
+      <StickyBar />
     </main>
   );
 }

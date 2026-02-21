@@ -1,10 +1,6 @@
 import { useState, useEffect } from 'react';
 
-interface StickyBarProps {
-  onOpenPlaybook?: () => void;
-}
-
-export function StickyBar({ onOpenPlaybook }: StickyBarProps) {
+export function StickyBar() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -26,7 +22,7 @@ export function StickyBar({ onOpenPlaybook }: StickyBarProps) {
   return (
     <div className="fixed bottom-0 left-0 right-0 z-40 glass border-t border-border animate-slide-up">
       <div className="container-main py-3">
-        <div className="container-main h-20 md:h-24 flex items-center justify-between gap-4">
+        <div className="h-20 md:h-24 flex items-center justify-between gap-4">
           {/* Left Side: Offer */}
           <div className="flex items-center gap-6 lg:gap-8">
             <div className="hidden sm:flex flex-col">
@@ -54,6 +50,12 @@ export function StickyBar({ onOpenPlaybook }: StickyBarProps) {
             </a>
 
             <button
+              onClick={() => {
+                const el = document.getElementById('contact');
+                if (el) {
+                  window.scrollTo({ top: el.offsetTop - 80, behavior: 'smooth' });
+                }
+              }}
               className="bg-safety text-coal !px-12 py-3 md:py-4 font-bold uppercase tracking-wider hover:bg-safety-light transition-colors shadow-lg shadow-safety/20 whitespace-nowrap"
             >
               Get Custom Quote

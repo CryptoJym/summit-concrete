@@ -13,10 +13,6 @@ export function Footer() {
       <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle at 50% 50%, #ffffff 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
 
       <div className="container-main relative z-10">
-        {/* Industrial corner accents - Moved further out to avoid collisions */}
-        <div className="absolute top-0 left-0 w-24 h-24 border-l-4 border-t-4 border-safety/20 hidden lg:block -translate-x-8 -translate-y-8" />
-        <div className="absolute bottom-0 right-0 w-24 h-24 border-r-4 border-b-4 border-sage/20 hidden lg:block translate-x-8 translate-y-8" />
-
         <div className="grid lg:grid-cols-2 gap-20 lg:gap-32">
           {/* Brand Column */}
           <div>
