@@ -54,7 +54,7 @@ export function StickyBar() {
                   behavior: 'smooth',
                 });
             }}
-            className="px-6 py-2.5 bg-amber text-white font-semibold text-sm hover:bg-amber-hover transition-colors"
+            className="px-6 py-2.5 bg-amber text-white font-semibold text-sm rounded-lg hover:bg-amber-hover transition-all duration-300"
           >
             Get Free Estimate
           </button>

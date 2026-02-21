@@ -37,7 +37,7 @@ export function Header({ activeSection = '' }: { activeSection?: string }) {
         <div className="container-main flex items-center justify-between">
           <button onClick={() => scrollTo('hero')} className="flex items-center gap-3">
             <div
-              className={`w-9 h-9 flex items-center justify-center font-bold text-sm transition-colors ${
+              className={`w-9 h-9 rounded-lg flex items-center justify-center font-bold text-sm transition-all duration-300 ${
                 isScrolled ? 'bg-amber text-white' : 'bg-ink text-white'
               }`}
             >
@@ -71,7 +71,7 @@ export function Header({ activeSection = '' }: { activeSection?: string }) {
             </a>
             <button
               onClick={() => scrollTo('contact')}
-              className="hidden sm:block px-5 py-2.5 bg-amber text-white text-sm font-semibold hover:bg-amber-hover transition-colors"
+              className="hidden sm:block px-5 py-2.5 bg-amber text-white text-sm font-semibold rounded-lg hover:bg-amber-hover transition-all duration-300 hover:shadow-md hover:shadow-amber/20"
             >
               Free Estimate
             </button>
@@ -143,7 +143,7 @@ export function Header({ activeSection = '' }: { activeSection?: string }) {
             </a>
             <button
               onClick={() => scrollTo('contact')}
-              className="w-full py-3 bg-amber text-white text-sm font-semibold hover:bg-amber-hover transition-colors"
+              className="w-full py-3 bg-amber text-white text-sm font-semibold rounded-lg hover:bg-amber-hover transition-all duration-300"
             >
               Free Estimate
             </button>
