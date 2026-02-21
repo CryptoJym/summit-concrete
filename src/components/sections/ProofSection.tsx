@@ -96,7 +96,7 @@ export function ProofSection() {
     <section
       ref={sectionRef}
       id="proof"
-      className="relative py-36 lg:py-48 bg-white overflow-hidden"
+      className="relative py-20 lg:py-28 bg-white overflow-hidden"
     >
       {/* Background Elements */}
       <div className="absolute inset-0">
@@ -115,18 +115,12 @@ export function ProofSection() {
           }}
         />
 
-        {/* Large text background */}
-        <div
-          className="absolute -left-10 top-1/3 text-[18rem] font-display leading-none text-coal/[0.015] select-none pointer-events-none hidden xl:block whitespace-nowrap"
-          style={{ fontFamily: 'var(--font-display)' }}
-        >
-          PROOF
-        </div>
+        {/* Background watermark text removed for cleaner layout */}
       </div>
 
       <div className="container-main relative z-10">
         {/* Header */}
-        <div className="max-w-4xl mb-32">
+        <div className="max-w-4xl mb-16">
           <div
             className={`inline-flex items-center gap-3 mb-6 opacity-0 ${isVisible ? 'animate-slide-in-left' : ''}`}
           >
@@ -183,11 +177,11 @@ export function ProofSection() {
         </div>
 
         {/* Gallery Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 mb-40">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 mb-20">
           {(filteredImages.length > 0 ? filteredImages : galleryImages).map((image, index) => (
             <div
               key={image.id}
-              className={`group relative cursor-pointer opacity-0 ${isVisible ? 'animate-slide-up' : ''}`}
+              className={`group relative opacity-0 ${isVisible ? 'animate-slide-up' : ''}`}
               style={{ animationDelay: `${400 + index * 100}ms` }}
               onMouseEnter={() => setHoveredImage(index)}
               onMouseLeave={() => setHoveredImage(null)}
@@ -197,16 +191,6 @@ export function ProofSection() {
                 className={`relative transition-all duration-500 ${hoveredImage === index ? 'transform -translate-y-2' : ''
                   }`}
               >
-                {/* Industrial Frame - RESTRICTED TO CORNERS ONLY */}
-                <div
-                  className={`absolute top-0 left-0 w-8 h-8 border-l-4 border-t-4 transition-all duration-300 z-20 ${hoveredImage === index ? 'border-safety opacity-100' : 'border-sage opacity-30'
-                    }`}
-                />
-                <div
-                  className={`absolute bottom-0 right-0 w-8 h-8 border-r-4 border-b-4 transition-all duration-300 z-20 ${hoveredImage === index ? 'border-sage opacity-100' : 'border-safety opacity-30'
-                    }`}
-                />
-
                 {/* Image Container */}
                 <div className="relative aspect-[4/3] bg-concrete overflow-hidden m-2">
                   {/* Actual Image */}
@@ -214,7 +198,7 @@ export function ProofSection() {
                     src={image.src}
                     alt={image.description}
                     fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="object-cover transition-all duration-500 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
 
@@ -230,23 +214,7 @@ export function ProofSection() {
                   {/* Gradient Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-coal/80 via-transparent to-transparent" />
 
-                  {/* Hover Overlay */}
-                  <div
-                    className={`absolute inset-0 bg-coal/90 flex items-center justify-center transition-opacity duration-300 ${hoveredImage === index ? 'opacity-100' : 'opacity-0'
-                      }`}
-                  >
-                    <div className="text-center">
-                      <div
-                        className="text-6xl font-bold text-safety mb-2"
-                        style={{ fontFamily: 'var(--font-display)' }}
-                      >
-                        0{image.id}
-                      </div>
-                      <span className="text-white font-medium uppercase tracking-wider text-sm">
-                        View Project
-                      </span>
-                    </div>
-                  </div>
+                  {/* Hover effect - subtle darkening instead of full cover */}
                 </div>
 
                 {/* Info Bar - INCREASED PADDING */}
@@ -293,10 +261,6 @@ export function ProofSection() {
           className={`relative mb-24 opacity-0 ${isVisible ? 'animate-slide-up delay-600' : ''}`}
         >
           <div className="relative p-16 lg:p-20 bg-ice">
-            {/* Corner accents - MOVED FURTHER OUT */}
-            <div className="absolute top-0 left-0 w-16 h-16 border-l-4 border-t-4 border-sage -translate-x-1 -translate-y-1" />
-            <div className="absolute bottom-0 right-0 w-16 h-16 border-r-4 border-b-4 border-safety translate-x-1 translate-y-1" />
-
             <h3
               className="text-2xl lg:text-3xl font-bold text-coal mb-10 text-center"
               style={{ fontFamily: 'var(--font-display)' }}
@@ -306,12 +270,12 @@ export function ProofSection() {
 
             <div className="flex flex-wrap justify-center gap-10">
               {proofGallery.cityAlbums.map((album) => (
-                <button
+                <div
                   key={album.city}
-                  className="group flex items-center gap-6 bg-white px-12 py-7 shadow-sm hover:shadow-lg hover:bg-coal hover:text-white transition-all duration-300"
+                  className="flex items-center gap-6 bg-white px-12 py-7 shadow-sm"
                 >
                   <svg
-                    className="w-5 h-5 text-sage group-hover:text-safety transition-colors"
+                    className="w-5 h-5 text-sage"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -320,18 +284,10 @@ export function ProofSection() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
                   <span className="font-medium">{album.city}</span>
-                  <span className="text-xs px-2 py-0.5 bg-concrete group-hover:bg-white/20 transition-colors">
+                  <span className="text-xs px-2 py-0.5 bg-concrete">
                     {album.jobs} jobs
                   </span>
-                  <svg
-                    className="w-4 h-4 text-steel group-hover:text-white transition-colors"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </button>
+                </div>
               ))}
             </div>
           </div>
@@ -342,10 +298,6 @@ export function ProofSection() {
           className={`opacity-0 ${isVisible ? 'animate-slide-up delay-700' : ''}`}
         >
           <div className="relative p-12 lg:p-16 bg-coal">
-            {/* Corner accents */}
-            <div className="absolute top-0 left-0 w-16 h-16 border-l-2 border-t-2 border-safety -translate-x-2 -translate-y-2" />
-            <div className="absolute bottom-0 right-0 w-16 h-16 border-r-2 border-b-2 border-sage translate-x-2 translate-y-2" />
-
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-14 lg:gap-20">
               {stats.map((stat, index) => (
                 <div

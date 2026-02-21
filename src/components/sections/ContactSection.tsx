@@ -88,14 +88,11 @@ export function ContactSection() {
 
   if (isSubmitted) {
     return (
-      <section ref={sectionRef} id="contact" className="relative py-36 lg:py-48 bg-coal overflow-hidden">
+      <section ref={sectionRef} id="contact" className="relative py-20 lg:py-28 bg-coal overflow-hidden">
         <div className="container-main">
           <div className="max-w-2xl mx-auto text-center">
             {/* Success State */}
             <div className="relative p-12 bg-white">
-              {/* Corner accents */}
-              <div className="absolute -top-4 -left-4 w-16 h-16 border-l-2 border-t-2 border-sage" />
-              <div className="absolute -bottom-4 -right-4 w-16 h-16 border-r-2 border-b-2 border-safety" />
 
               <div className="w-20 h-20 bg-sage flex items-center justify-center mx-auto mb-6">
                 <svg className="w-10 h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -142,7 +139,7 @@ export function ContactSection() {
     <section
       ref={sectionRef}
       id="contact"
-      className="relative py-36 lg:py-48 bg-coal overflow-hidden"
+      className="relative py-20 lg:py-28 bg-coal overflow-hidden"
     >
       {/* Background Elements */}
       <div className="absolute inset-0">
@@ -158,13 +155,7 @@ export function ContactSection() {
           }}
         />
 
-        {/* Large text background */}
-        <div
-          className="absolute -left-10 top-1/2 -translate-y-1/2 text-[20rem] font-display leading-none text-white/[0.015] select-none pointer-events-none hidden xl:block whitespace-nowrap"
-          style={{ fontFamily: 'var(--font-display)' }}
-        >
-          CONTACT
-        </div>
+        {/* Background watermark text removed for cleaner layout */}
       </div>
 
       <div className="container-main relative z-10">
@@ -436,7 +427,7 @@ export function ContactSection() {
                         onChange={handleChange}
                         onFocus={() => setFocusedField('squareFootage')}
                         onBlur={() => setFocusedField(null)}
-                        className={`w-full px-5 py-4 border-2 bg-ice text-coal placeholder-steel/50 focus:outline-none transition-colors ${focusedField === 'squareFootage' ? 'border-safety' : 'border-concrete'
+                        className={`w-full px-6 py-4 border bg-ice text-coal placeholder-steel/50 focus:outline-none transition-colors ${focusedField === 'squareFootage' ? 'border-safety' : 'border-concrete'
                           }`}
                         placeholder="e.g., 500 sq ft"
                       />
@@ -452,7 +443,7 @@ export function ContactSection() {
                         onChange={handleChange}
                         onFocus={() => setFocusedField('hasExistingConcrete')}
                         onBlur={() => setFocusedField(null)}
-                        className={`w-full px-5 py-4 border-2 bg-ice text-coal focus:outline-none transition-colors ${focusedField === 'hasExistingConcrete' ? 'border-safety' : 'border-concrete'
+                        className={`w-full px-6 py-4 border bg-ice text-coal focus:outline-none transition-colors ${focusedField === 'hasExistingConcrete' ? 'border-safety' : 'border-concrete'
                           }`}
                       >
                         <option value="">Select...</option>
@@ -476,7 +467,7 @@ export function ContactSection() {
                       onChange={handleChange}
                       onFocus={() => setFocusedField('message')}
                       onBlur={() => setFocusedField(null)}
-                      className={`w-full px-5 py-4 border-2 bg-ice text-coal placeholder-steel/50 focus:outline-none resize-none transition-colors ${focusedField === 'message' ? 'border-safety' : 'border-concrete'
+                      className={`w-full px-6 py-4 border bg-ice text-coal placeholder-steel/50 focus:outline-none resize-none transition-colors ${focusedField === 'message' ? 'border-safety' : 'border-concrete'
                         }`}
                       placeholder="Tell us more about your project..."
                     />

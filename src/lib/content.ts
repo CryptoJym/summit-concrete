@@ -5,7 +5,7 @@ export const brand = {
   name: 'Summit Concrete',
   tagline: 'Tear-out & Repour Done Right',
   phone: '(801) 555-0123',
-  email: 'info@summitconcrete.com',
+  email: 'hello@summitconcrete.com',
   serviceArea: ['Utah County', 'Salt Lake', 'Davis', 'Summit County'],
   serviceAreas: [
     'Utah County',

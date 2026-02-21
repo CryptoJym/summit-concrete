@@ -5,10 +5,9 @@ import { navigation, brand } from '@/lib/content';
 
 interface HeaderProps {
   activeSection?: string;
-  onOpenPlaybook?: () => void;
 }
 
-export function Header({ activeSection = '', onOpenPlaybook }: HeaderProps) {
+export function Header({ activeSection = '' }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -131,12 +130,14 @@ export function Header({ activeSection = '', onOpenPlaybook }: HeaderProps) {
 
               {/* CTA Button */}
               <button
+                onClick={() => {
+                  const el = document.getElementById('contact');
+                  if (el) {
+                    window.scrollTo({ top: el.offsetTop - 80, behavior: 'smooth' });
+                  }
+                }}
                 className={`hidden sm:flex relative group !px-12 py-4 font-bold text-sm uppercase tracking-wider transition-all duration-300 bg-safety text-coal hover:bg-safety-light whitespace-nowrap`}
               >
-                {/* Button corner accents */}
-                <div className="absolute top-0 left-0 w-2 h-2 border-l border-t border-coal/30 -translate-x-0.5 -translate-y-0.5 opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="absolute bottom-0 right-0 w-2 h-2 border-r border-b border-coal/30 translate-x-0.5 translate-y-0.5 opacity-0 group-hover:opacity-100 transition-opacity" />
-
                 <span className="relative z-10">
                   Get Quote
                 </span>
