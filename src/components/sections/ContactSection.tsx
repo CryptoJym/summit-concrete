@@ -35,16 +35,16 @@ export function ContactSection() {
 
   if (isSubmitted) {
     return (
-      <section ref={ref} id="contact" className="py-24 lg:py-32 bg-ink">
+      <section ref={ref} id="contact" className="py-28 lg:py-40 bg-ink">
         <div className="container-main">
           <div className="max-w-md mx-auto text-center">
-            <h2 className="text-2xl font-bold text-white mb-3 font-display">Request Received</h2>
-            <p className="text-white/50 mb-8">
+            <h2 className="text-3xl font-bold text-white mb-4 font-display">Request Received</h2>
+            <p className="text-white/50 mb-10 text-lg">
               We&apos;ll get back to you within 24 hours.
             </p>
             <a
               href={`tel:${brand.phone}`}
-              className="inline-block px-6 py-3 bg-amber text-white font-semibold hover:bg-amber-hover transition-colors"
+              className="inline-block px-8 py-4 bg-amber text-white text-lg font-semibold hover:bg-amber-hover transition-colors"
             >
               Call Us Now
             </a>
@@ -54,27 +54,27 @@ export function ContactSection() {
     );
   }
 
-  const inputClass = 'w-full px-5 py-4 border border-edge bg-white text-ink placeholder-ink-faded/50 focus:border-amber transition-colors';
+  const inputClass = 'w-full px-6 py-4 border border-white/15 bg-white/5 text-white placeholder-white/30 focus:border-amber focus:bg-white/10 transition-colors text-base';
 
   return (
-    <section ref={ref} id="contact" className="py-24 lg:py-32 bg-ink">
-      <div className="container-main max-w-2xl">
-        {/* Header — centered above form */}
-        <div className={`text-center mb-12 opacity-0 ${isVisible ? 'animate-in' : ''}`}>
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">
+    <section ref={ref} id="contact" className="py-28 lg:py-40 bg-ink">
+      <div className="container-main max-w-xl mx-auto">
+        {/* Header */}
+        <div className={`text-center mb-14 lg:mb-16 opacity-0 ${isVisible ? 'animate-in' : ''}`}>
+          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-5">
             Get Your Free Estimate
           </h2>
-          <p className="text-white/50">
-            We respond same day. No spam, ever.
+          <p className="text-white/40 text-lg">
+            Same-day response. No spam, ever.
           </p>
         </div>
 
         {/* Form */}
         <div className={`opacity-0 ${isVisible ? 'animate-in delay-2' : ''}`}>
-          <form onSubmit={handleSubmit} className="space-y-5">
+          <form onSubmit={handleSubmit} className="space-y-6">
             <input type="text" name="name" required value={formData.name} onChange={handleChange} className={inputClass} placeholder="Your name" />
 
-            <div className="grid sm:grid-cols-2 gap-5">
+            <div className="grid sm:grid-cols-2 gap-6">
               <input type="tel" name="phone" required value={formData.phone} onChange={handleChange} className={inputClass} placeholder="Phone number" />
               <input type="text" name="address" required value={formData.address} onChange={handleChange} className={inputClass} placeholder="Project address" />
             </div>
@@ -98,14 +98,14 @@ export function ContactSection() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full py-4 bg-amber text-white text-lg font-semibold hover:bg-amber-hover transition-colors disabled:opacity-50"
+              className="w-full py-5 bg-amber text-white text-lg font-bold hover:bg-amber-hover transition-colors disabled:opacity-50"
             >
               {isSubmitting ? 'Sending...' : 'Get Free Quote'}
             </button>
           </form>
 
-          <p className="text-center text-white/30 text-sm mt-6">
-            Or call us directly: <a href={`tel:${brand.phone}`} className="text-white/50 hover:text-amber transition-colors">{brand.phone}</a>
+          <p className="text-center text-white/25 text-sm mt-8">
+            Or call directly: <a href={`tel:${brand.phone}`} className="text-white/40 hover:text-amber transition-colors">{brand.phone}</a>
           </p>
         </div>
       </div>
