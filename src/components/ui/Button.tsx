@@ -1,63 +1,58 @@
-'use client';
+import Link from "next/link";
 
-import { ButtonHTMLAttributes, ReactNode } from 'react';
+type ButtonVariant = "primary" | "dark" | "outline";
+type ButtonSize = "sm" | "md" | "lg";
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'safety' | 'sage';
-  size?: 'sm' | 'md' | 'lg' | 'xl';
-  children: ReactNode;
+interface ButtonProps {
+  children: React.ReactNode;
+  variant?: ButtonVariant;
+  size?: ButtonSize;
+  href?: string;
+  className?: string;
+  type?: "button" | "submit" | "reset";
   fullWidth?: boolean;
-  icon?: ReactNode;
-  iconPosition?: 'left' | 'right';
+  onClick?: () => void;
 }
 
+const variantStyles: Record<ButtonVariant, string> = {
+  primary:
+    "bg-primary border-2 border-asphalt text-asphalt shadow-hard hover:shadow-hard-hover hover:-translate-y-1 hover:-translate-x-1 active:translate-x-0 active:translate-y-0 active:shadow-none",
+  dark: "bg-asphalt border-2 border-asphalt text-primary hover:text-white shadow-hard active:translate-x-[2px] active:translate-y-[2px] active:shadow-none",
+  outline:
+    "bg-transparent border-2 border-asphalt text-asphalt hover:bg-asphalt hover:text-primary hover:shadow-hard hover:-translate-y-1 active:translate-x-0 active:translate-y-0 active:shadow-none",
+};
+
+const sizeStyles: Record<ButtonSize, string> = {
+  sm: "h-10 px-6 text-sm",
+  md: "h-12 px-8 text-base",
+  lg: "h-16 px-10 text-xl",
+};
+
 export function Button({
-  variant = 'primary',
-  size = 'md',
   children,
+  variant = "primary",
+  size = "md",
+  href,
+  className = "",
+  type = "button",
   fullWidth = false,
-  icon,
-  iconPosition = 'right',
-  className = '',
-  ...props
+  onClick,
 }: ButtonProps) {
-  const baseStyles = `
-    inline-flex items-center justify-center gap-2 font-semibold
-    rounded-xl transition-all duration-300 cta-button
-    focus:outline-none focus:ring-2 focus:ring-offset-2
-    disabled:opacity-50 disabled:cursor-not-allowed
-  `;
+  const baseStyles =
+    "inline-flex items-center justify-center gap-2 font-bold uppercase tracking-wide transition-all duration-0 cursor-pointer select-none";
+  const classes = `${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${fullWidth ? "w-full" : ""} ${className}`;
 
-  const variants = {
-    primary: 'bg-coal text-white hover:bg-coal/90 focus:ring-coal',
-    secondary: 'bg-concrete text-coal hover:bg-concrete/80 focus:ring-concrete',
-    outline: 'border-2 border-coal text-coal hover:bg-coal hover:text-white focus:ring-coal',
-    ghost: 'text-coal hover:bg-coal/5 focus:ring-coal',
-    safety: 'bg-safety text-coal hover:bg-safety/90 focus:ring-safety',
-    sage: 'bg-sage text-white hover:bg-sage/90 focus:ring-sage',
-  };
-
-  const sizes = {
-    sm: 'px-4 py-2 text-sm',
-    md: 'px-6 py-3 text-base',
-    lg: 'px-8 py-4 text-lg',
-    xl: 'px-10 py-5 text-xl',
-  };
+  if (href) {
+    return (
+      <Link href={href} className={classes}>
+        {children}
+      </Link>
+    );
+  }
 
   return (
-    <button
-      className={`
-        ${baseStyles}
-        ${variants[variant]}
-        ${sizes[size]}
-        ${fullWidth ? 'w-full' : ''}
-        ${className}
-      `}
-      {...props}
-    >
-      {icon && iconPosition === 'left' && <span>{icon}</span>}
+    <button type={type} className={classes} onClick={onClick}>
       {children}
-      {icon && iconPosition === 'right' && <span>{icon}</span>}
     </button>
   );
 }

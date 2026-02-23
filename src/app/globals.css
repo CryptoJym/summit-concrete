@@ -1,36 +1,51 @@
 @import "tailwindcss";
 
 :root {
-  /* Warm stone palette */
-  --base: #FAF9F7;
-  --base-alt: #F0EDEA;
-  --ink: #1C1917;
-  --ink-faded: #78716C;
-  --amber: #D97706;
-  --amber-hover: #B45309;
-  --teal: #2E6B5E;
-  --edge: #E7E5E0;
+  /* Soft Brutalism Palette */
+  --primary: #F2FF00;
+  --cured-concrete: #EAEAEA;
+  --fresh-pour: #F4F4F4;
+  --asphalt: #1A1A1A;
+  --rebar: #8C8C8C;
+  --safety-orange: #FF3300;
+  --dark-bg: #23200F;
+  --dark-surface: #2E2C25;
+  --dark-border: #393628;
+  --dark-muted: #bab59c;
+
+  /* Shadows */
+  --shadow-hard: 4px 4px 0px 0px #1A1A1A;
+  --shadow-hard-hover: 6px 6px 0px 0px #1A1A1A;
+  --shadow-hard-xl: 10px 10px 0px 0px #1A1A1A;
 }
 
 @theme inline {
-  --color-base: var(--base);
-  --color-base-alt: var(--base-alt);
-  --color-ink: var(--ink);
-  --color-ink-faded: var(--ink-faded);
-  --color-amber: var(--amber);
-  --color-amber-hover: var(--amber-hover);
-  --color-teal: var(--teal);
-  --color-edge: var(--edge);
-  --font-sans: var(--font-dm-sans), system-ui, sans-serif;
-  --font-display: var(--font-syne), system-ui, sans-serif;
+  --color-primary: var(--primary);
+  --color-cured: var(--cured-concrete);
+  --color-surface: var(--fresh-pour);
+  --color-asphalt: var(--asphalt);
+  --color-rebar: var(--rebar);
+  --color-alert: var(--safety-orange);
+  --color-dark-bg: var(--dark-bg);
+  --color-dark-surface: var(--dark-surface);
+  --color-dark-border: var(--dark-border);
+  --color-dark-muted: var(--dark-muted);
+
+  --font-display: var(--font-space-grotesk), system-ui, sans-serif;
+  --font-mono: var(--font-space-mono), ui-monospace, monospace;
+  --font-label: var(--font-jetbrains-mono), ui-monospace, monospace;
+
+  --shadow-hard: 4px 4px 0px 0px #1A1A1A;
+  --shadow-hard-hover: 6px 6px 0px 0px #1A1A1A;
+  --shadow-hard-xl: 10px 10px 0px 0px #1A1A1A;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 
 body {
-  background: var(--base);
-  color: var(--ink);
+  background: var(--cured-concrete);
+  color: var(--asphalt);
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
 }
@@ -40,41 +55,186 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.15;
 }
 
-/* Entrance animation */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(16px); }
-  to { opacity: 1; transform: translateY(0); }
+/* ============================================
+   NOISE TEXTURE OVERLAY
+   ============================================ */
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 50;
+  opacity: 0.08;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
-.animate-in { animation: fadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-.delay-1 { animation-delay: 100ms; }
-.delay-2 { animation-delay: 200ms; }
-.delay-3 { animation-delay: 300ms; }
-.delay-4 { animation-delay: 400ms; }
-.delay-5 { animation-delay: 500ms; }
-
-/* Container */
-.container-main {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
+/* ============================================
+   MARQUEE / TICKER ANIMATION
+   ============================================ */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
-@media (min-width: 640px) { .container-main { padding: 0 2rem; } }
-@media (min-width: 1024px) { .container-main { padding: 0 3rem; } }
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+}
 
-/* Focus styles */
-:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
-input:focus, textarea:focus, select:focus { outline: none; border-color: var(--amber); }
+/* ============================================
+   HERO TEXT STROKE HOVER
+   ============================================ */
+.hero-text-stroke:hover {
+  -webkit-text-stroke: 2px #1A1A1A;
+  color: transparent;
+}
 
-/* Scrollbar */
-::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: var(--base); }
-::-webkit-scrollbar-thumb { background: var(--edge); border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: var(--ink-faded); }
+/* ============================================
+   ACCORDION FLASH ANIMATION
+   ============================================ */
+@keyframes flash-yellow {
+  0% { background-color: #F2FF00; }
+  100% { background-color: transparent; }
+}
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+details[open] summary ~ * {
+  animation: flash-yellow 0.3s ease-out;
+}
 
-/* Sticky bar glass */
-.glass-dark {
-  background: rgba(28, 25, 23, 0.95);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+/* ============================================
+   GRID BACKGROUND PATTERN
+   ============================================ */
+.bg-grid {
+  background-size: 40px 40px;
+  background-image:
+    linear-gradient(to right, #e5e5e0 1px, transparent 1px),
+    linear-gradient(to bottom, #e5e5e0 1px, transparent 1px);
+}
+.bg-grid-dark {
+  background-size: 40px 40px;
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.1) 1px, transparent 1px);
+}
+
+/* ============================================
+   INDUSTRIAL SCROLLBAR
+   ============================================ */
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background: #EAEAEA;
+  border-left: 2px solid #1A1A1A;
+}
+::-webkit-scrollbar-thumb {
+  background: #1A1A1A;
+  border: 2px solid #EAEAEA;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #F2FF00;
+}
+
+/* ============================================
+   HARD SHADOW UTILITIES
+   ============================================ */
+.shadow-hard {
+  box-shadow: 4px 4px 0px 0px #1A1A1A;
+}
+.shadow-hard-hover {
+  box-shadow: 6px 6px 0px 0px #1A1A1A;
+}
+.shadow-hard-xl {
+  box-shadow: 10px 10px 0px 0px #1A1A1A;
+}
+
+/* ============================================
+   GRAYSCALE HOVER (for images)
+   ============================================ */
+.grayscale-hover {
+  filter: grayscale(100%) contrast(1.25);
+  transition: filter 0.3s ease;
+}
+.grayscale-hover:hover,
+.group:hover .grayscale-hover {
+  filter: grayscale(0%) contrast(1);
+}
+
+/* ============================================
+   INDUSTRIAL INPUT STYLING
+   ============================================ */
+.industrial-input:focus-within {
+  border-color: #1A1A1A;
+  box-shadow: 4px 4px 0px #F2FF00;
+}
+.industrial-input input:focus,
+.industrial-input select:focus,
+.industrial-input textarea:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* ============================================
+   BRUTALIST RADIO/CHECKBOX
+   ============================================ */
+.brutalist-checkbox:checked + div {
+  background-color: #F2FF00;
+  color: #1A1A1A;
+}
+.brutalist-checkbox:checked + div .check-icon {
+  opacity: 1;
+}
+
+/* ============================================
+   JOB CARD HOVER
+   ============================================ */
+.job-card {
+  transition: transform 0.1s linear, box-shadow 0.1s linear;
+}
+.job-card:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 8px 8px 0px #1A1A1A;
+}
+.job-card:hover .card-img {
+  filter: grayscale(0%);
+}
+
+/* ============================================
+   SELECTION STYLING
+   ============================================ */
+::selection {
+  background: #F2FF00;
+  color: #1A1A1A;
+}
+
+/* ============================================
+   FOCUS STYLES
+   ============================================ */
+:focus-visible {
+  outline: 2px solid #F2FF00;
+  outline-offset: 2px;
+}
+
+/* ============================================
+   DARK PAGE SCROLLBAR VARIANT
+   ============================================ */
+.dark-scrollbar::-webkit-scrollbar-track {
+  background: #23200F;
+  border-left: none;
+}
+.dark-scrollbar::-webkit-scrollbar-thumb {
+  background: #393628;
+  border: 2px solid #23200F;
+}
+
+/* ============================================
+   TIMELINE LINE
+   ============================================ */
+.timeline-line {
+  background: linear-gradient(to bottom, #F2FF00 0%, #F2FF00 33%, #3a3727 33%, #3a3727 100%);
 }

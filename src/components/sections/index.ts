@@ -1,4 +1,12 @@
 export { HeroSection } from './HeroSection';
-export { ProcessSection } from './ProcessSection';
-export { ProofSection } from './ProofSection';
-export { ContactSection } from './ContactSection';
+export { StatsGrid } from './StatsGrid';
+export { ProjectSidebar } from './ProjectSidebar';
+export { ProjectGrid } from './ProjectGrid';
+export { CapabilitiesAccordion } from './CapabilitiesAccordion';
+export { CertificationsBar } from './CertificationsBar';
+export { QuoteInfo } from './QuoteInfo';
+export { QuoteForm } from './QuoteForm';
+export { SuccessConfirmation } from './SuccessConfirmation';
+export { ProjectTimeline } from './ProjectTimeline';
+export { CrewHero } from './CrewHero';
+export { CrewGrid } from './CrewGrid';

@@ -1,42 +1,25 @@
-'use client';
-
-import { ReactNode } from 'react';
+type BadgeVariant = "yellow" | "dark" | "outline";
 
 interface BadgeProps {
-  variant?: 'default' | 'safety' | 'sage' | 'steel' | 'outline';
-  size?: 'sm' | 'md';
-  children: ReactNode;
+  children: React.ReactNode;
+  variant?: BadgeVariant;
   className?: string;
 }
 
+const variantStyles: Record<BadgeVariant, string> = {
+  yellow: "bg-primary text-asphalt border-asphalt",
+  dark: "bg-asphalt text-primary border-asphalt",
+  outline: "bg-transparent text-asphalt border-asphalt",
+};
+
 export function Badge({
-  variant = 'default',
-  size = 'md',
   children,
-  className = '',
+  variant = "yellow",
+  className = "",
 }: BadgeProps) {
-  const variants = {
-    default: 'bg-coal text-white',
-    safety: 'bg-safety text-coal',
-    sage: 'bg-sage text-white',
-    steel: 'bg-steel/20 text-steel',
-    outline: 'border border-coal text-coal bg-transparent',
-  };
-
-  const sizes = {
-    sm: 'px-2 py-0.5 text-xs',
-    md: 'px-3 py-1 text-sm',
-  };
-
   return (
     <span
-      className={`
-        inline-flex items-center font-semibold rounded-full
-        uppercase tracking-wider
-        ${variants[variant]}
-        ${sizes[size]}
-        ${className}
-      `}
+      className={`inline-block font-mono text-xs font-bold uppercase tracking-widest px-2 py-1 border ${variantStyles[variant]} ${className}`}
     >
       {children}
     </span>
