@@ -6,10 +6,10 @@ export const brand = {
     tagline: "Utah's Trusted Concrete Contractor",
     phone: '801-735-6867',
     email: 'info@summitconcreteutah.com',
-    address: 'Orem, Utah',
-    city: 'Orem, UT',
+    address: 'Orem, UT 84057',
+    city: 'Orem, Utah',
     established: 'EST. 1985',
-    region: 'Utah, Salt Lake, Wasatch & Davis Counties',
+    region: 'Utah, Salt Lake, Wasatch, and Davis Counties',
     hours: {
           weekday: 'MON-FRI: 7:00 AM - 5:00 PM',
           saturday: 'SAT: By Appointment',
@@ -77,7 +77,7 @@ export const statsGrid = [
         value: 'START A PROJECT',
         description: 'Get a Quote Today',
         type: 'action' as const,
-        href: '/quote',
+        href: '/contact',
   },
   ];
 

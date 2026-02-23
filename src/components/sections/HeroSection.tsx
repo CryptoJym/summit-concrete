@@ -28,7 +28,7 @@ export function HeroSection() {
             {heroContent.description}
           </p>
           <div className="mt-8 flex gap-4">
-            <Button href="/capabilities">{heroContent.cta}</Button>
+            <Button href="/services">{heroContent.cta}</Button>
           </div>
         </div>
       </div>

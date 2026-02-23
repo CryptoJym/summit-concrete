@@ -27,7 +27,7 @@ export function CrewGrid() {
             <p className="text-dark-muted text-lg">{crewPage.ctaDescription}</p>
           </div>
           <div className="flex-shrink-0 z-10">
-            <Button href="/quote" variant="primary" size="lg">
+            <Button href="/contact" variant="primary" size="lg">
               {crewPage.ctaButton}
             </Button>
           </div>

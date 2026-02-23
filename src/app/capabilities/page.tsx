@@ -3,7 +3,6 @@ import { Footer } from "@/components/layout/Footer";
 import { CapabilitiesAccordion } from "@/components/sections/CapabilitiesAccordion";
 import { CertificationsBar } from "@/components/sections/CertificationsBar";
 import { capabilitiesPage } from "@/lib/content";
-import { MaterialIcon } from "@/components/ui/Icons";
 
 export default function CapabilitiesPageRoute() {
   return (

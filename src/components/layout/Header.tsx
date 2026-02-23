@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { navigation } from "@/lib/content";
@@ -9,6 +9,27 @@ import { MaterialIcon } from "@/components/ui/Icons";
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
+
+  useEffect(() => {
+    if (!menuOpen) {
+      return;
+    }
+
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setMenuOpen(false);
+      }
+    };
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    document.addEventListener("keydown", handleEscape);
+
+    return () => {
+      document.removeEventListener("keydown", handleEscape);
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [menuOpen]);
 
   return (
     <>
@@ -62,27 +83,27 @@ export function Header() {
       {/* Mobile menu */}
       {menuOpen && (
         <div className="fixed inset-0 z-30 md:hidden">
-          <div
-            className="absolute inset-0 bg-asphalt/20"
-            role="button"
-            tabIndex={0}
-            aria-label="Close menu"
+          <button
+            type="button"
+            className="absolute inset-0 bg-asphalt"
+            aria-label="Close menu overlay"
             onClick={() => setMenuOpen(false)}
-            onKeyDown={(e) => { if (e.key === "Escape" || e.key === "Enter") setMenuOpen(false); }}
           />
-          <nav className="absolute top-20 left-0 right-0 bg-cured border-b-2 border-asphalt flex flex-col">
-            {navigation.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setMenuOpen(false)}
-                className={`px-6 py-4 text-sm font-bold uppercase tracking-wide border-b border-asphalt/20 ${
-                  pathname === link.href ? "bg-primary text-asphalt" : ""
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
+          <nav aria-label="Mobile navigation" className="absolute top-20 inset-x-0 px-4 sm:px-6">
+            <div className="bg-cured border-2 border-asphalt shadow-hard overflow-hidden">
+              {navigation.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMenuOpen(false)}
+                  className={`block px-5 py-4 text-sm font-bold uppercase tracking-wide border-b border-asphalt/20 ${
+                    pathname === link.href ? "bg-primary text-asphalt" : "hover:bg-primary/35"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
           </nav>
         </div>
       )}
