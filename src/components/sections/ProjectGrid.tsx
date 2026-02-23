@@ -28,14 +28,22 @@ export function ProjectGrid({ activeFilter }: ProjectGridProps) {
         {filtered.map((project) => (
           <JobCard key={project.id} {...project} />
         ))}
-      </div>
-
-      {/* Load More */}
-      <div className="mt-16 flex justify-center pb-8">
-        <button className="bg-transparent border-2 border-asphalt px-12 py-4 font-display text-lg font-bold tracking-wide hover:bg-asphalt hover:text-primary hover:shadow-hard hover:-translate-y-1 transition-all uppercase flex items-center gap-2">
-          <MaterialIcon name="refresh" className="animate-spin" />
-          Load More Entries
-        </button>
+        {/* Skeleton Loading Card */}
+        <div className="border-2 border-asphalt bg-white shadow-hard break-inside-avoid animate-pulse">
+          <div className="aspect-[4/3] bg-rebar/20 border-b-2 border-asphalt" />
+          <div className="p-4 bg-surface space-y-3">
+            <div className="h-3 bg-rebar/20 w-3/4" />
+            <div className="h-6 bg-rebar/20 w-full" />
+            <div className="grid grid-cols-2 gap-px bg-rebar border border-rebar">
+              <div className="bg-surface p-2 h-10" />
+              <div className="bg-surface p-2 h-10" />
+            </div>
+            <div className="h-10 bg-rebar/20" />
+          </div>
+          <div className="p-4 border-t-2 border-asphalt">
+            <span className="font-mono text-xs text-rebar animate-pulse">LOADING_DATA_</span>
+          </div>
+        </div>
       </div>
     </div>
   );

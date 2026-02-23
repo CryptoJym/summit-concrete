@@ -64,7 +64,11 @@ export function Header() {
         <div className="fixed inset-0 z-30 md:hidden">
           <div
             className="absolute inset-0 bg-asphalt/20"
+            role="button"
+            tabIndex={0}
+            aria-label="Close menu"
             onClick={() => setMenuOpen(false)}
+            onKeyDown={(e) => { if (e.key === "Escape" || e.key === "Enter") setMenuOpen(false); }}
           />
           <nav className="absolute top-20 left-0 right-0 bg-cured border-b-2 border-asphalt flex flex-col">
             {navigation.map((link) => (

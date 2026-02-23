@@ -16,7 +16,7 @@ export function CrewGrid() {
 
       {/* Bottom CTA */}
       <section className="py-20 px-4 bg-dark-bg border-t border-dark-border">
-        <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10 bg-dark-surface p-10 rounded-xl relative overflow-hidden">
+        <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10 bg-dark-surface p-10 border-2 border-dark-border relative overflow-hidden">
           <div className="absolute top-0 right-0 p-4 opacity-10">
             <MaterialIcon name="construction" className="text-9xl text-white" />
           </div>

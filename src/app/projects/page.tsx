@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
 import { ProjectSidebar } from "@/components/sections/ProjectSidebar";
 import { ProjectGrid } from "@/components/sections/ProjectGrid";
 
@@ -11,13 +12,14 @@ export default function ProjectsPage() {
   return (
     <div className="relative flex flex-col min-h-screen w-full">
       <Header />
-      <div className="pt-0 flex min-h-screen">
+      <main id="main" className="pt-0 flex flex-1">
         <ProjectSidebar
           activeFilter={activeFilter}
           onFilterChange={setActiveFilter}
         />
         <ProjectGrid activeFilter={activeFilter} />
-      </div>
+      </main>
+      <Footer />
     </div>
   );
 }

@@ -14,7 +14,9 @@ export function QuoteInfo() {
             {quoteFormFields.sectionLabel}
           </Badge>
           <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-black uppercase leading-[0.9] tracking-tighter mb-6">
-            ESTIMATE<br />PROTOCOL
+            {quoteFormFields.heading.split(" ").map((word, i) => (
+              <span key={i}>{i > 0 && <br />}{word}</span>
+            ))}
           </h1>
           <p className="font-mono text-sm md:text-base max-w-md leading-relaxed border-l-4 border-primary pl-4 text-asphalt/80">
             {quoteFormFields.description}
@@ -28,17 +30,19 @@ export function QuoteInfo() {
           </div>
           <div className="space-y-2">
             <h3 className="font-mono text-xs text-rebar uppercase font-bold">DIRECT LINE</h3>
-            <p className="font-bold text-lg">{brand.phone}</p>
-            <p className="font-mono text-sm text-green-700 flex items-center gap-1">
+            <a href={`tel:${brand.phone.replace(/[^0-9+]/g, "")}`} className="font-bold text-lg hover:text-primary transition-colors block">
+              {brand.phone}
+            </a>
+            <p className="font-mono text-sm text-primary flex items-center gap-1">
               <MaterialIcon name="fiber_manual_record" className="text-sm" />
               OPERATIONAL
             </p>
           </div>
           <div className="space-y-2">
             <h3 className="font-mono text-xs text-rebar uppercase font-bold">DIGITAL COMMS</h3>
-            <p className="font-bold text-lg underline decoration-2 decoration-primary underline-offset-4">
+            <a href={`mailto:${brand.email}`} className="font-bold text-lg underline decoration-2 decoration-primary underline-offset-4 hover:text-primary transition-colors block">
               {brand.email.toUpperCase()}
-            </p>
+            </a>
           </div>
           <div className="space-y-2">
             <h3 className="font-mono text-xs text-rebar uppercase font-bold">HOURS</h3>

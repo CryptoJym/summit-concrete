@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { projectFilters } from "@/lib/content";
 import { MaterialIcon } from "@/components/ui/Icons";
 
@@ -28,7 +27,7 @@ export function ProjectSidebar({ activeFilter, onFilterChange }: ProjectSidebarP
                   onChange={() => onFilterChange(filter.id)}
                   className="peer sr-only brutalist-checkbox"
                 />
-                <div className="border-2 border-asphalt p-3 flex items-center justify-between bg-white hover:bg-gray-100 transition-colors peer-checked:bg-primary peer-checked:text-asphalt">
+                <div className="border-2 border-asphalt p-3 flex items-center justify-between bg-white hover:bg-surface transition-colors peer-checked:bg-primary peer-checked:text-asphalt">
                   <span className="font-bold text-sm tracking-tight">{filter.label}</span>
                   <MaterialIcon name={filter.icon} className="check-icon opacity-0 peer-checked:opacity-100 text-lg" />
                 </div>
@@ -40,7 +39,7 @@ export function ProjectSidebar({ activeFilter, onFilterChange }: ProjectSidebarP
       <div className="border-t-2 border-asphalt pt-6">
         <div className="font-mono text-xs text-rebar mb-2">DATABASE STATUS</div>
         <div className="flex items-center gap-2 mb-2">
-          <div className="size-2 bg-green-500 rounded-full animate-pulse" />
+          <div className="size-2 bg-primary animate-pulse" />
           <span className="font-bold text-sm">LIVE CONNECTION</span>
         </div>
         <div className="font-mono text-sm border border-asphalt bg-surface p-2">

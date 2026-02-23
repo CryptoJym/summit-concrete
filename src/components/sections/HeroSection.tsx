@@ -9,7 +9,7 @@ export function HeroSection() {
       {/* Left: Typography Zone - 60% */}
       <div className="w-full lg:w-[60%] bg-cured flex flex-col justify-center p-6 md:p-12 lg:p-16 relative border-b-2 lg:border-b-0 lg:border-r-2 border-asphalt">
         <div className="absolute top-6 left-6 md:top-10 md:left-10 flex items-center gap-2">
-          <span className="w-2 h-2 bg-asphalt rounded-full animate-pulse" />
+          <span className="w-2 h-2 bg-asphalt" />
           <span className="font-mono text-xs font-bold tracking-widest text-asphalt/70">
             {heroContent.badge}
           </span>
@@ -50,10 +50,16 @@ export function HeroSection() {
           <MaterialIcon name="videocam" className="text-[14px] animate-pulse" />
           {heroContent.liveFeed.label}
         </div>
+        {/* Play Button Overlay */}
+        <div className="absolute inset-0 z-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+          <div className="size-16 border-2 border-white bg-asphalt/60 flex items-center justify-center">
+            <MaterialIcon name="play_arrow" className="text-white text-3xl" />
+          </div>
+        </div>
         {/* Camera Metadata */}
         <div className="absolute bottom-6 left-6 z-30 font-mono text-xs text-primary/80 flex flex-col gap-1 pointer-events-none">
-          {Object.entries(heroContent.liveFeed.camera).map(([key, val]) => (
-            <div key={key} className="flex justify-between w-48 border-b border-primary/30 pb-1">
+          {Object.entries(heroContent.liveFeed.camera).map(([key, val], i, arr) => (
+            <div key={key} className={`flex justify-between w-48 pb-1 ${i < arr.length - 1 ? "border-b border-primary/30" : ""}`}>
               <span>{key.toUpperCase()}:</span>
               <span>{val}</span>
             </div>

@@ -30,7 +30,7 @@ export function Textarea({
         required={required}
         value={value}
         onChange={onChange}
-        className="w-full h-full pt-8 pb-4 px-4 bg-transparent border-none text-base font-medium text-asphalt focus:ring-0 resize-none placeholder-gray-400 min-h-[120px]"
+        className="w-full h-full pt-8 pb-4 px-4 bg-transparent border-none text-base font-medium text-asphalt focus:ring-0 resize-none placeholder-rebar min-h-[120px]"
       />
     </div>
   );

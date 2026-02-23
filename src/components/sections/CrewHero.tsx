@@ -12,7 +12,7 @@ export function CrewHero() {
           <h1 className="text-white text-5xl lg:text-7xl font-black leading-[0.9] tracking-[-0.04em] uppercase">
             {crewPage.heading}{" "}
             <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-neutral-400 to-neutral-600">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-rebar to-dark-muted">
               {crewPage.headingGradient}
             </span>
           </h1>
